@@ -1,4 +1,4 @@
-package com.example.bookshelf.ui.theme
+package com.example.bookshelf.ui
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
