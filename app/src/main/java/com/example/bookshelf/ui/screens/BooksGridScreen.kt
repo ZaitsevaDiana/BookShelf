@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,25 +28,29 @@ import com.example.bookshelf.data.Book
 
 
 
+@ExperimentalMaterial3Api
 @Composable
 fun BooksGridScreen(
     books: List<Book>,
-    modifier: Modifier
+    modifier: Modifier,
+    onBookClicked: (Book) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(150.dp),
         contentPadding = PaddingValues(4.dp)
     ) {
         itemsIndexed(books) { _, book ->
-            BooksCard(book = book, modifier)
+            BooksCard(book = book, modifier, onBookClicked)
         }
     }
 }
 
+@ExperimentalMaterial3Api
 @Composable
 fun BooksCard(
     book: Book,
-    modifier: Modifier
+    modifier: Modifier,
+    onBookClicked: (Book) -> Unit
 ) {
     Card(
         modifier = modifier
@@ -53,7 +58,8 @@ fun BooksCard(
             .fillMaxWidth()
             .requiredHeight(296.dp),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 8.dp)
+            defaultElevation = 8.dp),
+        onClick = { onBookClicked(book) } // Добавляем обработчик клика на всю карточку
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             book.title?.let {
