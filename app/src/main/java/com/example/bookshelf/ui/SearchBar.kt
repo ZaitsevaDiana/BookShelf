@@ -71,7 +71,7 @@ fun ClosedAppBar(onSearchClicked: () -> Unit) {
                 Icon(
                     imageVector = Icons.Filled.Search,
                     contentDescription = "SearchIcon",
-                    tint = Color.White
+                    tint = Color.Black
                 )
 
             }
@@ -106,11 +106,11 @@ fun OpenedAppBar(
                     modifier = Modifier
                         .alpha(ContentAlpha.medium),
                     text = "Search here...",
-                    color = Color.White
+                    color = Color.Black
                 )
             },
             textStyle = TextStyle(
-                fontSize = MaterialTheme.typography.bodySmall.fontSize
+                fontSize = MaterialTheme.typography.bodyMedium.fontSize
             ),
             singleLine = true,
             leadingIcon = {
@@ -122,7 +122,7 @@ fun OpenedAppBar(
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = "Search Icon",
-                        tint = Color.White
+                        tint = Color.Black
                     )
 
                 }
@@ -140,7 +140,7 @@ fun OpenedAppBar(
                     Icon(
                         imageVector = Icons.Default.Close,
                         contentDescription = "Close Icon",
-                        tint = Color.White
+                        tint = Color.Black
                     )
 
                 }
@@ -154,10 +154,10 @@ fun OpenedAppBar(
                 }
             ),
             colors = TextFieldDefaults.colors(
-                Color.Transparent, // Прозрачный фон
-                cursorColor = Color.White, // Цвет курсора
-                focusedIndicatorColor = Color.Transparent, // Прозрачный цвет индикатора фокуса
-                unfocusedIndicatorColor = Color.Transparent // Прозрачный цвет индикатора без фокуса
+                //Color.Transparent, // Прозрачный фон
+                cursorColor = Color.Black.copy(alpha = ContentAlpha.medium), // Цвет курсора
+                focusedIndicatorColor = Color.Black, // Прозрачный цвет индикатора фокуса
+                unfocusedIndicatorColor = Color.Black // Прозрачный цвет индикатора без фокуса
 
             )
         )

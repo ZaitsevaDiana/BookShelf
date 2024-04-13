@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_EXPRESSION")
+
 package com.example.bookshelf.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.bookshelf.data.Book
 import com.example.bookshelf.ui.screens.HomeScreen
+
 
 @ExperimentalMaterial3Api
 @Composable
@@ -52,7 +55,7 @@ fun BooksApp(
         ) {
             HomeScreen(
                 booksUiState = booksViewModel.booksUiState,
-                retryAction = { booksViewModel.getBooks() },
+                retryAction = { booksViewModel::getBooks },
                 modifier = modifier,
                 onBookClicked
             )
